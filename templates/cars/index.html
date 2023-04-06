@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<form>
+  <label for="name">Введите номер</label>
+  <input type="text" id="name">
+</form>
+<a href="{% url 'result-view' %}">
+  <button>поиск</button>
+</a>
+
+{% endblock %}
