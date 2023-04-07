@@ -17,9 +17,14 @@ def index_view(request):
     context = {"context" : "text"}
     return render(request, "cars/index.html", context=context)
 
-# def result_view(request):
-#     return render(request, "cars/result.html", context=None)
-class ResultView(generic.ListView):
-    queryset=Car.objects.filter(status=True)
-    context_object_name = 'cars'
-    template_name = 'cars/result.html'
+def result_view(request):
+    cars = Car.objects.all()
+    context = {
+        'context': 'text',
+        'cars' : cars
+    }
+    return render(request, "cars/result.html", context=context)
+# class ResultView(generic.ListView):
+#     cars = Car.objects.all()
+#     context_object_name = 'cars'
+#     template_name = 'cars/result.html'

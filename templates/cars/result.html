@@ -1,28 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
+{% for car in cars %}
 
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="row">Гос номер</th>
-        <td scope="row">{ post.license_plate }</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Марка машины</th>
-        <td>{ post.brand }</td>
-      </tr>
-      <tr>
-        <th scope="row">Модел машины</th>
-        <td>{ post.model }</td>
-        
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">{{ car.license_plate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">марка/модель</th>
+      <td>{{ car.brand }} / {{ car.model }}</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">год выпуска</th>
+      <td>{{ car.year }}</td>
+    </tr>
+    <tr>
+      <th scope="row">цвет авто</th>
+      <td colspan="2">{{ car.color }}</td>
+    </tr>
+    <tr>
+      <th scope="row">расположения руля</th>
+      <td colspan="2">{{ car.redder_location }}</td>
+    </tr>
+    <tr>
+      <th scope="row">обьем двигателя</th>
+      <td colspan="2">{{ car.engine_volume }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+
 {% endblock %}
