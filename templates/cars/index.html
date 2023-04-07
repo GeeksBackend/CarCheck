@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<form>
-  <label for="name">Введите номер</label>
-  <input type="text" id="name">
-</form>
-<a href="{% url 'result-view' %}">
-  <button>поиск</button>
-</a>
+<div class="search-form">
+  <input class="search-form" type="text">
+  <a href="{% url 'result-view'  %}"></a><button class="search-form">Search</button></a>
+</div>
 
 {% endblock %}
