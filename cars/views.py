@@ -1,27 +1,22 @@
 from django.shortcuts import render
 from django.views import generic
+
+from cars.forms import CarSearchForm
 from .models import Car
 
-class IndexView(generic.ListView):
-    model = Car
-    context_object_name = 'car'
-    template_name = 'cars/index.html'
-    extra_context = {
-        'title':'главная страница'
-    }
+
+def index_veiw(request):
+    if request.method == 'POST':
+        form = CarSearchForm(request.POST)
+        if form.is_valid():
+            license_plate = form.cleaned_data['license_plate']
+            car = Car.objects.filter(license_plate=license_plate).first()
+            return render(request, 'cars/result.html', {'car': car})
+    else:
+        form = CarSearchForm()
+    return render(request, 'cars/index.html', {'form': form})
 
 
 
-# def result_view(request):
-#     cars = Car.objects.all()
-#     context = {
-#         'context': 'text',
-#         'cars' : cars
-#     }
-#     return render(request, "cars/result.html", context=context)
-class ResultView(generic.DeleteView):
-    model = Car
-    context_object_name = 'cars'
-    template_name = 'cars/result.html'
 
 

@@ -1,33 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
+{% if car %}
+    
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">{{ cars.license_plate }}</th>
+      <th scope="col">{{ car.license_plate }}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">марка/модель</th>
-      <td>{{ cars.brand }} / {{ cars.model }}</td>
+      <td>{{ car.brand }} / {{ car.model }}</td>
      
     </tr>
     <tr>
       <th scope="row">год выпуска</th>
-      <td>{{ cars.year }}</td>
+      <td>{{ car.year }}</td>
     </tr>
     <tr>
       <th scope="row">цвет авто</th>
-      <td colspan="2">{{ cars.color }}</td>
+      <td colspan="2">{{ car.color }}</td>
     </tr>
     <tr>
       <th scope="row">расположения руля</th>
-      <td colspan="2">{{ cars.redder_location }}</td>
+      <td colspan="2">{{ car.redder_location }}</td>
     </tr>
     <tr>
       <th scope="row">обьем двигателя</th>
-      <td colspan="2">{{ cars.engine_volume }}</td>
+      <td colspan="2">{{ car.engine_volume }}</td>
     </tr>
   </tbody>
 </table>
+{% else %}
+    <h2>No results found</h2>
+{% endif %}
 {% endblock %}

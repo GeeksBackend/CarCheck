@@ -43,3 +43,4 @@ class Car(models.Model):
         verbose_name = "Автомобиль"
         verbose_name_plural ="Автомобили"
      
+
