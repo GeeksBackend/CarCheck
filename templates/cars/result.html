@@ -33,5 +33,9 @@
 </table>
 {% else %}
     <h2>No results found</h2>
+    <form action="">
+      {% csrf_token %}
+    <button><a href="{% url 'index-view' %}"></a>На главную</button>
+  </form>
 {% endif %}
 {% endblock %}
