@@ -1,8 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-<div><form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Search</button>
-</form></div>
+<style>
+    .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+</style>
+<div class="container">
+  <h1>Car Check</h1>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
